@@ -1,10 +1,11 @@
 import passport from 'passport';
 import { Strategy } from 'passport-facebook';
 import Usuarios from '../models/usuario.model';
+import { clientID, clientSecret } from '../services/inputs';
 
 const strategyOptions = {
-  clientID: process.env.FACEBOOK_CLIENT_ID,
-  clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+  clientID,
+  clientSecret,
   callbackURL: `http://localhost:${process.env.PORT}/auth/facebook/callback`,
 };
 
