@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
+var _os = _interopRequireDefault(require("os"));
+
 var _express = require("express");
 
 var _auth = _interopRequireDefault(require("../middlewares/auth"));
@@ -19,6 +21,7 @@ router.get('/info', (req, res) => {
   res.json({
     clientID: _inputs.clientID,
     clientSecret: _inputs.clientSecret,
+    numberProcessors: _os.default.cpus().length,
     procID: process.pid,
     workingDir: process.cwd(),
     memory: process.memoryUsage(),
