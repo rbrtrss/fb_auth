@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "transpile": "babel src --out-dir dist",
-    "fork": "./node_modules/.bin/pm2 start ./dist/index.js && npm start &",
-    "cluster": "./node_modules/.bin/pm2 -i max start ./dist/index.js && npm start &",
+    "fork": "./node_modules/.bin/pm2 -f start ./dist/index.js --name info --watch && npm start 8081 &",
+    "cluster": "./node_modules/.bin/pm2 -f -i max start ./dist/index.js --name random --watch && npm start 8082 &",
     "start": "node -r dotenv/config ./dist/index.js",
     "dev": "nodemon -r dotenv/config --exec babel-node ./src/index.js",
     "lint:fail": "eslint \"{src, apps, libs, tests}/**/*.js\"",

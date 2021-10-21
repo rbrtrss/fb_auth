@@ -1,7 +1,6 @@
 import server from './services/server';
 import db from './services/db';
-
-const PORT = process.env.PORT || 8080;
+import { PORT } from './services/inputs';
 
 server.listen(PORT, () => {
   console.log(`Server UP in port: ${PORT}`);
