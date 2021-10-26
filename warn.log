@@ -1,0 +1,13 @@
+{"level":"warn","message":"Paso algo?"}
+{"level":"warn","message":"Paso algo?"}
+{"level":"error","message":"Falsa Alarma solo pruebas"}
+{"level":"warn","message":"Paso algo?"}
+{"level":"error","message":"Falsa Alarma solo pruebas"}
+{"level":"warn","message":"Paso algo?"}
+{"level":"error","message":"Falsa Alarma solo pruebas"}
+{"level":"warn","message":"Paso algo?"}
+{"level":"error","message":"Falsa Alarma solo pruebas"}
+[33mwarn[39m |  Oct-26-2021 17:20:15 | Paso algo?
+[31merror[39m |  Oct-26-2021 17:20:15 | Falsa Alarma solo pruebas
+[33mwarn[39m |  Oct-26-2021 17:21:26 | Paso algo?
+[31merror[39m |  Oct-26-2021 17:21:26 | Falsa Alarma solo pruebas

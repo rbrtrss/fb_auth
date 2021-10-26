@@ -9,6 +9,8 @@ import mensajes from '../models/mensajes.model';
 import mensajesRouter from '../routes/mensajes.router';
 import usuariosRouter from '../routes/usuario.router';
 import { Server } from 'socket.io';
+import compression from 'compression';
+import logger from './logger';
 
 const app = express();
 const server = http.createServer(app);
@@ -31,6 +33,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(session(StoreOptions));
+app.use(compression());
 
 app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../views/index.html'));
@@ -41,11 +44,13 @@ app.use('/mensajes', mensajesRouter);
 app.use('/usuarios', usuariosRouter);
 
 io.on('connection', (socket) => {
-  console.log(`Usuario conectado en ${socket.id}`);
+  logger.info(`Usuario conectado en ${socket.id}`);
+  // console.log(`Usuario conectado en ${socket.id}`);
 
   socket.on('addedProducto', (prd) => {
     productos.add(prd);
-    console.log(prd);
+    logger.info(prd);
+    // console.log(prd);
   });
 
   socket.on('message', async (msg) => {
@@ -56,7 +61,8 @@ io.on('connection', (socket) => {
   });
 
   socket.on('loggedUser', (usr) => {
-    console.log(usr);
+    logger.info(usr);
+    // console.log(usr);
   });
 });
 
